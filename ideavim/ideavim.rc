@@ -1,53 +1,36 @@
-" .ideavimrc is a configuration file for IdeaVim plugin. It uses
-"   the same commands as the original .vimrc configuration.
-" You can find a list of commands here: https://jb.gg/h38q75
-" Find more examples here: https://jb.gg/share-ideavimrc
-
-
 """ Map leader to space ---------------------
 let mapleader=" "
 
 """ Plugins  --------------------------------
-set surround
-set multiple-cursors
 set commentary
-set argtextobj
 set easymotion
-set textobj-entire
-set ReplaceWithRegister
 set highlightedyank
 set NERDTree
-
-""" Plugin settings -------------------------
-let g:argtextobj_pairs="[:],(:),<:>"
 
 """ Common settings -------------------------
 set showmode
 set so=5
 set incsearch
 set nu
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 """ Idea specific settings ------------------
-set ideajoin
 set ideastatusicon=green
-set idearefactormode=keep
 
 """ Mappings --------------------------------
-map <leader>f <Plug>(easymotion-s)
-map <leader>e <Plug>(easymotion-f)
 
 map <leader>d <Action>(Debug)
 map <leader>r <Action>(RenameElement)
 map <leader>c <Action>(Stop)
 map <leader>z <Action>(ToggleDistractionFreeMode)
+map <leader>b <Action>(ToggleLineBreakpoint)
+nmap <leader>mb <Action>(XDebugger.MuteBreakpoints)
 
 map <leader>s <Action>(SelectInProjectView)
 map <leader>a <Action>(Annotate)
 map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
 map <S-Space> <Action>(GotoNextError)
 
-map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>o <Action>(FileStructurePopup)
 
 " comment line
@@ -57,12 +40,23 @@ nmap [b <Action>(PreviousTab)
 nmap <c-s> <Action>(SaveAll)
 nmap <leader>w <Action>(SaveAll)
 nmap <leader>r <Action>(IdeaVim.ReloadVimRc.reload)
+nmap <leader>ff <Action>(FindInPath)
+nmap <leader>tf <Action>(ActivateTerminalToolWindow)
+nmap <leader>fi <Action>(Find)
+nmap <leader>sf <Action>(SearchEverywhere)
 " files tree
 nmap <leader>o <Action>(ActivateProjectToolWindow)
 noremap <leader>q  q
 
-nmap <leader>mb <Action>(XDebugger.MuteBreakpoints)
-
 inoremap jk <Esc>
 inoremap kj <Esc>
 inoremap jj <Esc>
+
+nmap <leader>gc <Action>(GotoClass)
+nmap gi <Action>(GotoImplementation)
+nmap gd <Action>(GotoTypeDeclaration)
+nmap gD <Action>(GotoDeclaration)
+nmap gsm <Action>(GotoSuperMethod)
+nmap gt <Action>(GotoTest)
+nmap gb <Action>(Back)
+nmap gf <Action>(Forward)
